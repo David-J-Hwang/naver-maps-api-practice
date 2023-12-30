@@ -5,20 +5,24 @@ const locations = [
   { lat: 35.551032, lng: 129.263437 },  // my home
   { lat: 37.3595704, lng: 127.105399 }, // naver green factory
 ]
+
+let zoomNum = 9;
 // ================================================================================
 
 // ============================ Map Options ============================
 const mapOptions = {
   center: new naver.maps.LatLng(locations[0].lat, locations[0].lng),
-  zoom: 6,
+  zoom: zoomNum,
   // mapTypeId: naver.maps.MapTypeId.NORMAL,
   // mapTypeId: naver.maps.MapTypeId.SATELLITE,
-  mapTypeId: naver.maps.MapTypeId.HYBRID,
+  // mapTypeId: naver.maps.MapTypeId.HYBRID,
+  // mapTypeId: naver.maps.MapTypeId.TERRAIN,
 }
 // =====================================================================
 
 // ============================ Creating a new Naver Map ============================
 const map = new naver.maps.Map(document.getElementById('map'), mapOptions);
+map.setMapTypeId(N.MapTypeId.TERRAIN)
 // ==================================================================================
 
 // ============================ Change Map Settings with Buttons ============================
@@ -48,8 +52,47 @@ buttonTerrain.addEventListener('click', function() {
 });
 // ==========================================================================================
 
+// ============================ Move around ============================
+const buttonMoveJeju = document.querySelector('.btn-movejeju')
+const jeju = new naver.maps.LatLng(33.3590628, 126.534361);
+buttonMoveJeju.addEventListener('click', () => {
+  map.setCenter(jeju)
+})
 
+const buttonMoveSeoul = document.querySelector('.btn-moveseoul')
+const seoul = new naver.maps.LatLngBounds(
+  new naver.maps.LatLng(37.42829747263545, 126.76620435615891),
+  new naver.maps.LatLng(37.7010174173061, 127.18379493229875));
 
+buttonMoveSeoul.addEventListener('click', () => {
+  map.fitBounds(seoul)
+})
+
+const buttonZoomIn = document.querySelector('.btn-zoom-in')
+const buttonZoomOut = document.querySelector('.btn-zoom-out')
+function changeZoom(increment) {
+  let currentZoom = map.getZoom()
+  map.setZoom(currentZoom + increment);
+}
+
+buttonZoomIn.addEventListener('click', () => {
+  // if(zoomNum > 0 && zoomNum < 15) {
+  //   zoomNum += 1;
+  //   map.setZoom(zoomNum)
+  // }
+  // map.setZoom(12)
+  changeZoom(1)
+})
+
+buttonZoomOut.addEventListener('click', () => {
+  // if(zoomNum > 0 && zoomNum < 15) {
+  //   zoomNum -= 1;
+  //   map.setZoom(zoomNum)
+  // }
+  // map.setZoom(6)
+  changeZoom(-1)
+})
+// =====================================================================
 
 // ============================ Markers: Creating & Displaying ============================
 let marker1 = new naver.maps.Marker({
