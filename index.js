@@ -17,6 +17,13 @@ const mapOptions = {
   // mapTypeId: naver.maps.MapTypeId.SATELLITE,
   // mapTypeId: naver.maps.MapTypeId.HYBRID,
   // mapTypeId: naver.maps.MapTypeId.TERRAIN,
+  zoomControl: true,
+  zoomControlOptions: {
+    style: naver.maps.ZoomControlStyle.LARGE,
+    position: naver.maps.Position.RIGHT_TOP,
+    // position: naver.maps.Position.RIGHT_BOTTOM,
+    // position: naver.maps.Position.BOTTOM_RIGHT,
+  }
 }
 // =====================================================================
 
