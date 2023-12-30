@@ -1,0 +1,24 @@
+#map {
+  width: 100%;
+  height: 800px;
+}
+
+.container-button {
+  margin-top: 20px;
+  width: 100%;
+  height: 100px;
+  background-color: #EEE;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+
+}
+
+button {
+  width: 150px;
+  height: 50px;
+  background-color: black;
+  color: white;
+  font-size: 1.5em;
+}
