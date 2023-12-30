@@ -113,13 +113,17 @@ let marker2 = new naver.maps.Marker({
 // ========================================================================================
 
 // ============================ Moving a Marker to clicked position ============================
-naver.maps.Event.addListener(map, 'click', (e) => {
-  marker1.setPosition(e.latlng);
-})
+// naver.maps.Event.addListener(map, 'click', (e) => {
+//   marker1.setPosition(e.latlng);
+// })
 // =============================================================================================
 
+// ============================ Console Logging the coordinate where mouse is clicked ============================
+naver.maps.Event.addListener(map, 'click', function(e) {
+  console.log('Map clicked at: ', e.coord);
+});
 
-
+// ===============================================================================================================
 
 // ============================ Check if there's an Authentication Failure ============================
 window.navermap_authFailure = () => {
