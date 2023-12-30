@@ -22,7 +22,7 @@ const mapOptions = {
 
 // ============================ Creating a new Naver Map ============================
 const map = new naver.maps.Map(document.getElementById('map'), mapOptions);
-map.setMapTypeId(N.MapTypeId.TERRAIN)
+map.setMapTypeId(N.MapTypeId.HYBRID)
 // ==================================================================================
 
 // ============================ Change Map Settings with Buttons ============================
