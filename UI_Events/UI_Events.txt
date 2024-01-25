@@ -1,0 +1,18 @@
+지도 UI 이벤트: 지도와 사용자의 상호작용으로 발생하는 이벤트
+mousedown, mouseup
+click, dblclick, rightclick, mouseover, mouseout, mousemove
+dragstart, drag, dragend
+touchstart, touchmove, touchend, pinchstart, pinch, pinchend, tap, longtap, twofingertap, doubletap
+
+
+## 지도를 클릭했을 때 해당 위치를 console.log로 출력하는 예제
+let mapOptions = {
+  zoom: 4,
+  center: new naver.maps.LatLng(37.3614483, 127.1114883),
+}
+
+let map = new naver.maps.Map('map', mapOptions);
+
+naver.maps.Event.addListener(map, 'click', function(e) {
+  console.log(e)
+})
